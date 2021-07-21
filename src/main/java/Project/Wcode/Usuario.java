@@ -34,7 +34,7 @@ public class Usuario {
         return contrasena;
     }
 
-    public void setIdUsuarios(Integer idUsuarios) {
+    public void setIdUsuarios(Long idUsuarios) {
         this.idUsuarios = idUsuarios;
     }
 
