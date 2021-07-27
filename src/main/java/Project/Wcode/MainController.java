@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import static java.lang.Integer.parseInt;
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController // This means that this class is a Controller
 @RequestMapping(path="/data") // This means URL's start with /demo (after Application path)
 public class MainController {
@@ -15,7 +15,10 @@ public class MainController {
     MainController(UserRepository repository) {
         this.userRepository = repository;
     }
-
+    @GetMapping(path="/")
+    public @ResponseBody String greeting() {
+        return "Hello, World";
+    }
     @PostMapping(path="/register") // Map ONLY POST Requests
     public @ResponseBody String addNewUser (@RequestParam String name
             ,@RequestParam long phone, @RequestParam String email,@RequestParam String pass) {
